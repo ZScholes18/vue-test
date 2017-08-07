@@ -5,8 +5,6 @@
     </div>
 </template>
 
-
-
 <script>
 import Api from '../api';
 export default {
