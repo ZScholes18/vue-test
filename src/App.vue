@@ -3,9 +3,7 @@
     <HeaderExtends class="header" message="message" />
     <el-row>
       <el-col :span="24">
-        <container class="f-cb">
-          <search-bar class="f-fr" placeholder="请输入名字" mutationName='resetListData' :callback="callback"/>
-        </container>
+        <page1/>
       </el-col>
     </el-row>
     <data-table>
@@ -13,8 +11,8 @@
 </template>
 
 <script>
-import { HeaderExtends,Container,DataTable } from './components';
-import SearchBar from './components/SearchBar';
+import { HeaderExtends,SiderMenu } from './components';
+import Page1 from './components/page1';
 export default {
   name: 'app',
   data:function() {
@@ -28,9 +26,7 @@ export default {
   },
   components: {
     HeaderExtends,
-    SearchBar,
-    Container,
-    DataTable
+    Page1
   },
   methods: {
     callback(responseData) {
