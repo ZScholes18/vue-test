@@ -1,7 +1,6 @@
 <template>
     <div class="f-cb">
-        <el-input class="input" v-model="input" :placeholder="placeholder"></el-input>
-        <el-button type="primary" class="button" @click="setName">搜索</el-button>
+        <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="setName" :on-icon-click="setName">></el-input>
     </div>
 </template>
 

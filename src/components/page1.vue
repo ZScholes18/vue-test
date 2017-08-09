@@ -1,30 +1,26 @@
 <template>
-    <div>
-        <el-row>
-            <el-col :span="24">
-                <container class="f-cb">
-                    <SearchBar class="f-fr" placeholder="请输入名字" mutationName='resetListData' :callback="callback" />
-                </container>
-            </el-col>
-        </el-row>
-        <data-table/>
-    </div>
+  <div>
+    <el-row>
+      <el-col :span="24">
+        <container class="f-cb">
+          <SearchBar class="f-fr" placeholder="请输入名字" mutationName='resetListData' :callback="callback" />
+        </container>
+      </el-col>
+    </el-row>
+    <data-table/>
+  </div>
 </template>
 <script>
-import {Container,SearchBar,DataTable} from './index';
+import { Container, SearchBar, DataTable } from './index';
 // import Container from './container';
 // import SearchBar from './SearchBar';
 // import DataTable from './DataTable';
 
 export default {
   name: 'page1',
-  data:function() {
+  data: function () {
     return {
-      count:0,
-      callback:function(responseData) {
-        alert('after');
-        this.$store.commit('resetListData', responseData);
-      }
+      count: 0
     }
   },
   components: {

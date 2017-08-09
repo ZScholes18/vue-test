@@ -76,4 +76,4 @@ export default {
 ```
 此处callback是父组件的一个方法，当子组件调用callback 方法时，this指向父组件。
 
-* 若data中与methods中的函数同名，则props会从data中获取。
+* ~~若data中与methods中的函数同名，则props会从data中获取。~~（最新版的vuejs已经不允许data和methods中有相同名称的变量）
