@@ -11,10 +11,10 @@
   </div>
 </template>
 <script>
-import { Container, SearchBar, DataTable } from './index';
-// import Container from './container';
-// import SearchBar from './SearchBar';
-// import DataTable from './DataTable';
+// import { Container, SearchBar, DataTable } from './index';
+import Container from '../basic/container';
+import SearchBar from '../basic/SearchBar';
+import DataTable from '../DataTable';
 
 export default {
   name: 'page1',

@@ -1,5 +1,5 @@
 <script>
-import Header from './Header';
+import Header from './modules/Header';
 export default {
   name:"HeaderExtends",
   extends:Header,

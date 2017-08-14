@@ -20,7 +20,7 @@
 
 <script>
 import { HeaderExtends, SideMenu } from './components';
-import Page1 from './components/page1';
+import Page1 from './components/pages/page1';
 export default {
   name: 'app',
   data: function () {
