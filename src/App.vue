@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <HeaderExtends class="header" :class="{to_wide:isCollapse,to_narrow:!isCollapse}">
-       <span slot="menu-btn" class="fa fa-bars f-csp" style="margin-left:10px;color:white" @click="toggleMenu"></span>
+      <span slot="menu-btn" class="fa fa-bars f-csp" style="margin-left:10px;color:white;line-height:inherit" @click="toggleMenu"></span>
     </HeaderExtends>
-    <side-menu class="menu" :isCollapse="isCollapse" />
-    <div is="Content" class="f-cb content" :class="{to_wide:isCollapse,to_narrow:!isCollapse}">
+    <side-menu class="menu" :isCollapse="isCollapse" :class="{menu_hide:isCollapse,menu_show:!isCollapse}" />
+    <Container class="f-cb content" :class="{to_wide:isCollapse,to_narrow:!isCollapse}">
+      <el-card>
         <page1/>
-    </div>
+      </el-card>
+  
+    </Container>
   </div>
 </template>
 
 <script>
 import { HeaderExtends, SideMenu } from './components';
 import Page1 from './components/pages/page1';
-import {Content} from './components/basic';
+import { Container } from './components/basic';
 export default {
   name: 'app',
   data: function () {
@@ -25,28 +28,28 @@ export default {
   components: {
     HeaderExtends,
     SideMenu,
-    Content,
+    Container,
     Page1
   },
   computed: {
-        menuWidth() {
-            if (this.isCollapse) {
-                return 1;
-            }
-            else {
-                return 4;
-            }
-        },
-        contentWidth() {
-            return this.isCollapse?23:20;
-        }
-    },
-    methods: {
-      toggleMenu() {
-
-        this.isCollapse = !this.isCollapse
+    menuWidth() {
+      if (this.isCollapse) {
+        return 1;
       }
+      else {
+        return 4;
+      }
+    },
+    contentWidth() {
+      return this.isCollapse ? 23 : 20;
     }
+  },
+  methods: {
+    toggleMenu() {
+
+      this.isCollapse = !this.isCollapse
+    }
+  }
 };
 </script>
 
@@ -58,25 +61,49 @@ export default {
   text-align: center;
   color: #2c3e50;
   /*margin-top: 60px;*/
-  margin:0;
+  margin: 0;
 }
+
 .menu {
-  position:absolute;
-  top:0;
-  height:100%;
-  background-color:#2c3e50
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: #2c3e50
   /*overflow-y: auto;*/
   /*overflow-x:hidden;*/
 }
-.header,.content {
-  margin-left:200px
+
+.header,
+.content {
+  margin-left: 200px
 }
+
 .to_wide {
-  margin-left:64px;
-  transition: 0.4s; 
+  margin-left: 0;
+  /*transition: 0.4s;*/
 }
+
 .to_narrow {
-  margin-left:200px;
-  transition:0.4s;
+  margin-left: 200px;
+  /*transition: 0.4s;*/
+}
+
+.menu_hide {
+  margin-left: -200px;
+  /*transition: 0.4s;*/
+}
+
+.menu_show {
+  margin-left: 0;
+  /*transition: 0.4s;*/
+}
+
+@keyframes to_naroow {
+  from {
+    margin-left: 200px;
+  }
+  to {
+    margin-left: 200px;
+  }
 }
 </style>

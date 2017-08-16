@@ -1,5 +1,5 @@
 <template>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo menu" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu default-active="1-4-1" class="el-menu-vertical-demo menu" @open="handleOpen" @close="handleClose">
         <el-submenu index="1">
             <template slot="title">
                 <i class="el-icon-message"></i>
@@ -34,7 +34,6 @@
 <style>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 400px;
 }
 .menu {
     background:#fff;

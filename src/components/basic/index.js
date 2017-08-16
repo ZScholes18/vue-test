@@ -1,7 +1,7 @@
-import Content from './container';
+import Container from './container';
 import SearchBar from './SearchBar';
 
 export {
-    Content,
+    Container,
     SearchBar
 };
