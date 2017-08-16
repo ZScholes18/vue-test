@@ -1,18 +1,14 @@
 <template>
   <div>
-    <el-row>
-      <el-col :span="24">
-        <container class="f-cb">
-          <SearchBar class="f-fr" placeholder="请输入名字" mutationName='resetListData' :callback="callback" />
-        </container>
-      </el-col>
-    </el-row>
-    <data-table/>
+    <div class="f-cb">
+      <SearchBar class="f-fr " placeholder="请输入名字" mutationName='resetListData' :callback="callback" />
+    </div>
+    <data-table class="datatable"/>
   </div>
 </template>
 <script>
 // import { Container, SearchBar, DataTable } from './index';
-import Container from '../basic/container';
+
 import SearchBar from '../basic/SearchBar';
 import DataTable from '../DataTable';
 
@@ -25,7 +21,6 @@ export default {
   },
   components: {
     SearchBar,
-    Container,
     DataTable
   },
   methods: {
@@ -35,3 +30,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+.datatable {
+  margin-top: 10px;
+}
+</style>
+

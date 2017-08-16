@@ -2,8 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import ElementUI from 'element-ui';
+import './style/normalize.css';
 import 'element-ui/lib/theme-default/index.css';
 import './style/function.css';
+import './assets/font-awesome-4.7.0/css/font-awesome.min.css';
 import App from './App';
 import store from './store';
 

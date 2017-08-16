@@ -1,37 +1,31 @@
 <template>
-  <div id="app" style="position:absolute;bottom:0;top:0;right:0;left:0">
-    <HeaderExtends class="header" message="message" />
-    <el-row class="f-cb">
-      <el-col :span="menuWidth">
-        <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-          <el-radio-button :label="false">展开</el-radio-button>
-          <el-radio-button :label="true">收起</el-radio-button>
-        </el-radio-group>
-        <side-menu :isCollapse="isCollapse" />
-      </el-col>
-      <transition name="bounce">
-      <el-col :span="contentWidth">
+  <div id="app">
+    <HeaderExtends class="header" :class="{to_wide:isCollapse,to_narrow:!isCollapse}">
+       <span slot="menu-btn" class="fa fa-bars f-csp" style="margin-left:10px;color:white" @click="toggleMenu"></span>
+    </HeaderExtends>
+    <side-menu class="menu" :isCollapse="isCollapse" />
+    <div is="Content" class="f-cb content" :class="{to_wide:isCollapse,to_narrow:!isCollapse}">
         <page1/>
-      </el-col>
-      </transition>
-    </el-row>
+    </div>
   </div>
 </template>
 
 <script>
 import { HeaderExtends, SideMenu } from './components';
 import Page1 from './components/pages/page1';
+import {Content} from './components/basic';
 export default {
   name: 'app',
   data: function () {
     return {
       count: 0,
-      isCollapse: true
+      isCollapse: false
     }
   },
   components: {
     HeaderExtends,
     SideMenu,
+    Content,
     Page1
   },
   computed: {
@@ -47,6 +41,12 @@ export default {
             return this.isCollapse?23:20;
         }
     },
+    methods: {
+      toggleMenu() {
+
+        this.isCollapse = !this.isCollapse
+      }
+    }
 };
 </script>
 
@@ -58,5 +58,25 @@ export default {
   text-align: center;
   color: #2c3e50;
   /*margin-top: 60px;*/
+  margin:0;
+}
+.menu {
+  position:absolute;
+  top:0;
+  height:100%;
+  background-color:#2c3e50
+  /*overflow-y: auto;*/
+  /*overflow-x:hidden;*/
+}
+.header,.content {
+  margin-left:200px
+}
+.to_wide {
+  margin-left:64px;
+  transition: 0.4s; 
+}
+.to_narrow {
+  margin-left:200px;
+  transition:0.4s;
 }
 </style>
