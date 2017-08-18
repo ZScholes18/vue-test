@@ -80,22 +80,22 @@ export default {
 
 .to_wide {
   margin-left: 0;
-  /*transition: 0.4s;*/
+  transition: 0.4s;
 }
 
 .to_narrow {
   margin-left: 200px;
-  /*transition: 0.4s;*/
+  transition: 0.4s;
 }
 
 .menu_hide {
   margin-left: -200px;
-  /*transition: 0.4s;*/
+  transition: 0.4s;
 }
 
 .menu_show {
   margin-left: 0;
-  /*transition: 0.4s;*/
+  transition: 0.4s;
 }
 
 @keyframes to_naroow {
