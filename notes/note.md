@@ -1,4 +1,4 @@
-# 同名 css
+# 遇到了同名 css 怎么办
 
 子组件 child.vue 有一个叫menu的样式
 ```html

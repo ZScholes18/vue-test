@@ -9,8 +9,8 @@
 <script>
 // import { Container, SearchBar, DataTable } from './index';
 
-import SearchBar from '../basic/SearchBar';
-import DataTable from '../DataTable';
+import { SearchBar } from 'components/basic';
+import DataTable from 'components/DataTable';
 
 export default {
   name: 'page1',
