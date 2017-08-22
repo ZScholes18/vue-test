@@ -1,7 +1,5 @@
 <template>
-    <div class="f-cb">
-        <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="setName" :on-icon-click="searchClick">></el-input>
-    </div>
+    <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="setName" :on-icon-click="searchClick"></el-input>
 </template>
 
 <script>
@@ -49,26 +47,11 @@ export default {
 </script>
 <style scoped>
 .input {
-    float: left;
+    display: block;
 }
 
 .button {
     float: left;
     margin-left: 25px;
-}
-
-.f-cb:after,
-.f-cbli li:after {
-    display: block;
-    clear: both;
-    visibility: hidden;
-    height: 0;
-    overflow: hidden;
-    content: ".";
-}
-
-.f-cb,
-.f-cbli li {
-    zoom: 1;
 }
 </style>
