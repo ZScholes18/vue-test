@@ -1,6 +1,6 @@
 <template>
     <div class="f-cb">
-        <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="setName" :on-icon-click="setName">></el-input>
+        <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="setName" :on-icon-click="searchClick">></el-input>
     </div>
 </template>
 
@@ -11,6 +11,14 @@ export default {
     data() {
         return {
             input: ''
+        }
+    },
+    computed: {
+        condition() {
+            if(this.input == '') {
+                return false;
+            }
+            return this.input;
         }
     },
     methods: {
@@ -27,6 +35,14 @@ export default {
         success(responseData) {
             this.callback(responseData);
         },
+        searchClick() {
+            if(this.condition) {
+                this.$emit('searchClick',this.condition);
+            }
+            else {
+                alert('oh my god! it is empty!');
+            }
+        }
     },
     props: ['placeholder', 'apiName', 'moduleName', 'mutationName','callback']
 }

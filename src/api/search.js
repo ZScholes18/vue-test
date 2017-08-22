@@ -22,6 +22,8 @@ var searchTest = function (condition, cb) {
     //         cb(responseData);
     //     }
     // );
+
+    // mock.js暂时不支持fetch
     $.ajax({
         type: 'POST',
         url: '/searchTest',
