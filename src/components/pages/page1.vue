@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="f-cb">
-      <SearchBar class="f-fr " placeholder="请输入名字" mutationName='resetListData' :callback="callback" />
+      <SearchBar class="f-fr " placeholder="请输入名字" mutationName='resetListData' :callback="callback" @searchClick='searchHandle' />
     </div>
     <data-table class="datatable"/>
   </div>
@@ -11,6 +11,7 @@
 
 import SearchBar from '../basic/SearchBar';
 import DataTable from '../DataTable';
+import api from '../../api';
 
 export default {
   name: 'page1',
@@ -26,6 +27,9 @@ export default {
   methods: {
     callback(responseData) {
       this.$store.commit('resetListData', responseData);
+    },
+    searchHandle(condition) {
+        api.searchTest(condition,this.callback);
     }
   }
 };

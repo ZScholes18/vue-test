@@ -8,7 +8,7 @@ vue中data/computed/methods 中 this的上下文是vue实例,需注意。例如�
 ## 父组件通过props向子组件传递方法
 父组件调用子组件，通过绑定callback属性，将方法传给子组件：
 ``` html
-App.vue 
+App.vue
 
 <search-bar class="f-fr" placeholder="请输入名字" mutationName='resetListData' :callback="callback"/>
 ```
@@ -77,3 +77,40 @@ export default {
 此处callback是父组件的一个方法，当子组件调用callback 方法时，this指向父组件。
 
 * ~~若data中与methods中的函数同名，则props会从data中获取。~~（最新版的vuejs已经不允许data和methods中有相同名称的变量）
+
+## 官方标准在父组件中处理时间的方法： $emit
+
+```javascript
+// 子组件中的方法
+   export default {
+        data() {
+            return {
+                input: ''
+            }
+        },
+        computed: {
+            condition () {
+                if(this.input=='') {
+                    return false
+                }
+                return this.input;
+            }
+        },
+        methods: {
+            searchClick() {
+                if(this.condition) {
+                    this.$emit('searchCallback',this.condition);
+                }
+                else {
+                    alert('empty');
+                }
+            }
+        }
+   }
+```
+
+```html
+<!--父组件中处理-->
+<search-bar @searchCallback='parentfunc' .../>
+```
+这个例子将数据请求也放在父组件来做，进一步降低数据与ui的耦合度
