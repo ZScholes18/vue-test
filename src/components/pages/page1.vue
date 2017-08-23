@@ -1,10 +1,10 @@
 <template>
   <div>
     <handle-container>
-        <anch-button class="f-fl" href="#" text="xinjian" @click="newEdit" />
+        <anch-button class="f-fl" href="#" text="新建" @click="newEdit" />
         <SearchBar class="f-fr searchbar" placeholder="请输入名字" mutationName='resetListData' :callback="callback" @searchClick="searchClick"/>
     </handle-container>
-    <data-table class="datatable"/>
+    <data-table :isMultipleSelect="true"  :tableData="tableData" class="datatable"/>
   </div>
 </template>
 <script>
@@ -20,6 +20,11 @@ export default {
     return {
       count: 0
     }
+  },
+  computed: {
+        tableData() {
+            return this.$store.state.tableList.listData;
+        }
   },
   components: {
     SearchBar,

@@ -6,19 +6,28 @@
     tooltip-effect="dark"
     style="width: 100%"
     @selection-change="handleSelectionChange">
+    <el-table-column v-if="isSingleSelect" width="55">
+      <template scope="scope">
+        <el-radio class="radio" v-model="index" :label="scope.$index">备选项</el-radio>
+      </template>
+    </el-table-column>
     <el-table-column
+      v-if="isMultipleSelect"
       type="selection"
-      width="55">
+      width="55"
+      >
     </el-table-column>
     <el-table-column
       label="日期"
-      width="120">
+      width="120"
+      >
       <template scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
     <el-table-column
       prop="name"
       label="姓名"
-      width="120">
+      width="120"
+      >
     </el-table-column>
     <el-table-column
       prop="address"
@@ -33,24 +42,29 @@
     export default {
       data() {
         return {
-          multipleSelection: []
+          multipleSelection: [],
+          index:0
         }
       },
-      computed:{
-        tableData() {
-          return this.$store.state.tableList.listData;
-        }
+      methods: {
+          handleSelectionChange(val) {
+              console.log(val)
+          }
       },
+      props:{
+          tableData:{
+              type:Array
+          },
+          isSingleSelect:{
+              type:Boolean
+          },
+          isMultipleSelect:{
+              type:Boolean
+          }
+      }
     }
   </script>
   <style>
-    .el-table__body-wrapper {
-      overflow: hidden;
-    }
-    .el-table__body-wrapper:hover {
-      overflow: auto;
-      transition:0.2s;
-    }
+
   </style>
-  
-  
+
