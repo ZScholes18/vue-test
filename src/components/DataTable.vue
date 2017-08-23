@@ -49,8 +49,15 @@
       methods: {
           handleSelectionChange(val) {
               console.log(val)
+          },
+          cellClick(row ,column,cell,event) {
+              console.log(row);
+              console.log(column);
+              console.log(cell);
+              console.log(event);
+
           }
-      },
+       },
       props:{
           tableData:{
               type:Array
