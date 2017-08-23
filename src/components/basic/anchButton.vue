@@ -9,6 +9,10 @@
                 this.$emit('click')
             }
         },
-        props:['text']
+        props:{
+            text:{
+                type:String
+            }
+        }
     }
 </script>

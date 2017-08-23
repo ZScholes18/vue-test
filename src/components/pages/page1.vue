@@ -1,7 +1,7 @@
 <template>
   <div>
     <handle-container>
-        <anch-button class="f-fl" href="#" text="xinjian" />
+        <anch-button class="f-fl" href="#" text="xinjian" @click="newEdit" />
         <SearchBar class="f-fr searchbar" placeholder="请输入名字" mutationName='resetListData' :callback="callback" @searchClick="searchClick"/>
     </handle-container>
     <data-table class="datatable"/>
@@ -33,6 +33,9 @@ export default {
     },
     searchClick(condition) {
         api.searchTest(condition,this.callback);
+    },
+    newEdit() {
+        alert("new");
     }
   }
 };
