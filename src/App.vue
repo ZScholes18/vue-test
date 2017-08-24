@@ -5,29 +5,30 @@
         </HeaderExtends>
         <side-menu class="menu" :isCollapse="isCollapse" :class="{menu_hide:isCollapse,menu_show:!isCollapse}" />
         <Container class="f-cb content" :class="{to_wide:isCollapse,to_narrow:!isCollapse}">
-            <page1/>
-
+            <page1 v-if="showPage"/>
         </Container>
     </div>
 </template>
 
 <script>
 import { HeaderExtends, SideMenu } from './components';
-import Page1 from './components/pages/page1';
 import { Container } from './components/basic';
 export default {
     name: 'app',
     data: function () {
         return {
             count: 0,
-            isCollapse: false
+            isCollapse: false,
+            showPage:true,
         }
     },
     components: {
         HeaderExtends,
         SideMenu,
         Container,
-        Page1
+        page1(resolve) {
+            require(['./components/pages/page1'],resolve);
+        }
     },
     computed: {
         menuWidth() {

@@ -2,6 +2,7 @@
     <div>
         <handle-container>
             <anch-button class="f-fl" href="#" text="新建" @click="newEdit" />
+            <new-btn v-if='permissionList.editBtn'/>
             <SearchBar class="f-fr searchbar" placeholder="请输入名字" mutationName='resetListData' :callback="callback" @searchClick="searchClick" />
         </handle-container>
         <data-table :isMultipleSelect="true" :tableData="tableData" class="datatable"/>
@@ -13,7 +14,7 @@
 import { SearchBar, HandleContainer, AnchButton } from 'components/basic';
 import DataTable from 'components/DataTable';
 import api from 'api';
-
+import {mapState} from 'vuex';
 export default {
     name: 'page1',
     data: function() {
@@ -22,15 +23,19 @@ export default {
         }
     },
     computed: {
-        tableData() {
-            return this.$store.state.tableList.listData;
-        }
+        ...mapState({
+            tableData: state=>state.tableList.listData,
+            permissionList: 'permissionList'
+        })
     },
     components: {
         SearchBar,
         DataTable,
         HandleContainer,
-        AnchButton
+        AnchButton,
+        newBtn(resolve) {
+            require(['./buttons/newBtn'],resolve)
+        }
     },
     methods: {
         callback(responseData) {
