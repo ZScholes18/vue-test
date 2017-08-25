@@ -13,7 +13,7 @@
         }
     }
 </script>
-<style scoped>
+<style scoped lang="scss">
     .container {
         position: relative;
         height:auto;
