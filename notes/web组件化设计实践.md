@@ -55,6 +55,8 @@ export const {
     component_3
 };
 ```
+**注意：需要异步加载的组件不要这样通过 _index.js_ 打包导出，否则会导致 _webpack code split_ 失败！**
+
 在page.vue中以如下方式引入组件：
 ```html
 <script>
