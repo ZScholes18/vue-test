@@ -23,6 +23,7 @@ var searchTest = function (condition, cb) {
     //         cb(responseData);
     //     }
     // );
+
     // $.ajax({
     //     type: 'POST',
     //     url: '/searchTest',
@@ -31,7 +32,7 @@ var searchTest = function (condition, cb) {
     //     },
     //     dataType: 'json'
     // });
-    return axios.post('/searchTest').then(response=>{
+    return axios.post('/searchTest').then(response => {
         cb(response.data);
     });
 };
