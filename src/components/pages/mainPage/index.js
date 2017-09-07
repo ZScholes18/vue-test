@@ -1,5 +1,3 @@
 import mainPage from './mainPage';
 
-export {
-    mainPage
-};
+export default mainPage;

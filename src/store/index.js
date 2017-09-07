@@ -28,9 +28,15 @@ Vue.use(Vuex);
 //         state.listData = responseData.listData;
 //     }
 // };
-
+const permissionList = {
+    newBtn: true
+};
+Object.freeze(permissionList);
+const state = {
+    permissionList
+};
 export default new Vuex.Store({
-    // state,
+    state,
     // mutations,
     modules: {
         tableList

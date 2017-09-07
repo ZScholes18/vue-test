@@ -1,7 +1,8 @@
 import Mock from 'mockjs';
 import 'whatwg-fetch';
 import $ from 'jquery';
-import axios from 'axios';
+import axios from './http';
+import router from '../router';
 var searchTest = function (condition, cb) {
     Mock.mock('/searchTest', {
         'listData|1-10': [
@@ -13,7 +14,6 @@ var searchTest = function (condition, cb) {
         ]
     });
 
-    // setTimeout(() => cb(responseData), 100);
     // fetch('./searchTest').then(
     //     response => {
     //         return response.json();
@@ -33,7 +33,12 @@ var searchTest = function (condition, cb) {
     //     dataType: 'json'
     // });
     return axios.post('/searchTest').then(response => {
-        cb(response.data);
+        if (true) {
+            router.push('/login');
+        }
+        return response.data;
+    }).then(data => {
+        cb(data);
     });
 };
 export default searchTest;

@@ -3,7 +3,7 @@
         <div class="f-fl f-cb lh">    
             <slot name="menu-btn"></slot>
         </div>
-        <div class="f-fl lh title">欢迎使用手机安全管理信息化服务平台！</div>
+        <div class="f-fl lh title">欢迎来到实况8的游戏世界！！</div>
     
     </el-menu>
 </template>
@@ -21,7 +21,8 @@ export default {
 <style>
 .ccnav {
     height: 60px;
-    background: linear-gradient(to top right, #4b8ecc,#43abf0)
+    background: linear-gradient(to top right, #408080,#52a3a3)
+
 }
 .lh {
     line-height: 60px;
