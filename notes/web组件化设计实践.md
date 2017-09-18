@@ -1,4 +1,5 @@
 # web 组件化设计实践
+
 ## 目前方案的问题，jsp的include和jquery的load —— 无法传递数据
 
 ## 组件的拆分

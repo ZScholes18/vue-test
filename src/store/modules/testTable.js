@@ -1,3 +1,5 @@
+import Axios from 'api/http';
+import Mock from 'mockjs';
 const state = {
     listData: [{
         date: '2016-05-02',
@@ -18,6 +20,34 @@ const state = {
     }]
 };
 
+const actions = {
+    search ({ commit }, condition) {
+        Mock.mock('/searchTest', {
+            'listData|1-10': [
+                {
+                    date: '@date',
+                    name: condition,
+                    address: '@county'
+                }
+            ]
+        });
+        Axios.post('/searchTest', {
+            condition
+        }).then(response => {
+            // if (true) {
+            //     Message({
+            //         message: '登录已失效',
+            //         type: 'warning',
+            //         showClose: true
+            //     });
+            //     router.push({ name: 'login' });
+            // }
+            return response.data;
+        }).then(data => {
+            commit('resetListData', data);
+        });
+    }
+};
 const mutations = {
     resetListData: (state, responseData) => {
         state.listData = responseData.listData;
@@ -26,5 +56,6 @@ const mutations = {
 
 export default {
     state,
+    actions,
     mutations
 };

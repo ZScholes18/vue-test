@@ -40,9 +40,11 @@ Axios.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-// export default {
-//     install: function (Vue) {
-//         Object.defineProperty(Vue.prototype, '$http', { value: Axios });
-//     }
-// };
+export const AxiosPlugin = {
+    install: function (Vue) {
+        Object.defineProperty(Vue.prototype, '$http', { value: Axios });
+    }
+};
+
 export default Axios;
+// export default Axios;

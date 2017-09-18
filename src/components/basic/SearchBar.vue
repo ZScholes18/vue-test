@@ -1,5 +1,5 @@
 <template>
-    <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="setName" :on-icon-click="searchClick">
+    <el-input class="input" icon="search" v-model="input" :placeholder="placeholder" @keyup.enter.native="searchClick" :on-icon-click="searchClick">
     </el-input>
 </template>
 

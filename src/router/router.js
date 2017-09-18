@@ -28,7 +28,7 @@ export default new VueRouter({
             },
             children: [
                 {
-                    path: '/page1',
+                    path: 'page1',
                     name: 'page1',
                     component: page1
                 }

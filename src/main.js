@@ -9,18 +9,20 @@ import './style/function.css';
 import './assets/font-awesome-4.7.0/css/font-awesome.min.css';
 import App from './App';
 import store from './store';
-import Axios from './api/http';
+import { AxiosPlugin } from './api/http';
 
 import router from './router';
 
 Vue.use(ElementUI);
-
+Vue.use(AxiosPlugin);
 // Vue.use(VueRouter);
 /* eslint-disable no-new */
-new Vue({
+var vue = new Vue({
     el: '#app',
     store,
     router,
     template: '<App/>',
     components: { App }
 });
+
+export default vue;
